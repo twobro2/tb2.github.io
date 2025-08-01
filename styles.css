@@ -1136,6 +1136,12 @@ body {
     background: #f8fbfc;
 }
 
+.team-members .team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 .team-member-detail {
     background: white;
     border-radius: 20px;
