@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: <你的GitHub用户名>/<你的仓库名>
+  repo: twobro2/twobro2.github.io
   branch: main
 
 media_folder: "static/uploads"
