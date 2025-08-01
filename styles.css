@@ -8,8 +8,8 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #222;
-    background: #f6fafd;
+    color: #2c3e50;
+    background: #f8fbfc;
     overflow-x: hidden;
 }
 
@@ -62,7 +62,7 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: #2c3e50;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
@@ -96,7 +96,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #333;
+    background: #2c3e50;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -106,7 +106,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #81D8D0 0%, #0f3443 100%);
+    background: linear-gradient(135deg, #81D8D0 0%, #5bc0be 50%, #0f3443 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -143,7 +143,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    background: linear-gradient(45deg, #ffffff, #e8f6f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -174,24 +174,24 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #81D8D0, #b2f7ef);
-    color: #222;
+    background: linear-gradient(45deg, #ffffff, #e8f6f6);
+    color: #0f3443;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(129, 216, 208, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #81D8D0;
-    border: 2px solid #81D8D0;
+    color: white;
+    border: 2px solid white;
 }
 
 .btn-secondary:hover {
-    background: #81D8D0;
-    color: #fff;
+    background: white;
+    color: #0f3443;
     transform: translateY(-2px);
 }
 
@@ -219,13 +219,13 @@ body {
 
 .tech-item i {
     font-size: 2rem;
-    color: #81D8D0;
+    color: #ffffff;
 }
 
 /* 服务部分 */
 .services {
     padding: 100px 0;
-    background: #f8fafc;
+    background: #f8fbfc;
 }
 
 .section-header {
@@ -237,12 +237,12 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #1e293b;
+    color: #2c3e50;
 }
 
 .section-header p {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #7f8c8d;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -257,20 +257,20 @@ body {
     background: white;
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e8f6f6;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(129, 216, 208, 0.2);
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #81D8D0, #0f3443);
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -287,11 +287,11 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1e293b;
+    color: #2c3e50;
 }
 
 .service-card p {
-    color: #64748b;
+    color: #7f8c8d;
     line-height: 1.6;
 }
 
@@ -312,12 +312,12 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #1e293b;
+    color: #2c3e50;
 }
 
 .about-text p {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #7f8c8d;
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -340,7 +340,7 @@ body {
 }
 
 .stat-item p {
-    color: #64748b;
+    color: #7f8c8d;
     font-weight: 500;
 }
 
@@ -353,7 +353,7 @@ body {
 .image-placeholder {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #81D8D0, #0f3443);
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -368,7 +368,7 @@ body {
 /* 团队部分 */
 .team {
     padding: 100px 0;
-    background: #f8fafc;
+    background: #f8fbfc;
 }
 
 .team-grid {
@@ -382,19 +382,19 @@ body {
     padding: 2rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
     transition: all 0.3s ease;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(129, 216, 208, 0.2);
 }
 
 .member-avatar {
     width: 100px;
     height: 100px;
-    background: linear-gradient(135deg, #81D8D0, #0f3443);
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -411,7 +411,7 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1e293b;
+    color: #2c3e50;
 }
 
 .member-role {
@@ -421,7 +421,7 @@ body {
 }
 
 .member-desc {
-    color: #64748b;
+    color: #7f8c8d;
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -460,15 +460,15 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1e293b;
+    color: #2c3e50;
 }
 
 .contact-item p {
-    color: #64748b;
+    color: #7f8c8d;
 }
 
 .contact-form {
-    background: #f8fafc;
+    background: #f8fbfc;
     padding: 2rem;
     border-radius: 20px;
 }
@@ -481,7 +481,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #e8f6f6;
     border-radius: 10px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -491,7 +491,7 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #81D8D0;
 }
 
 .form-group textarea {
@@ -501,7 +501,7 @@ body {
 
 /* 页脚 */
 .footer {
-    background: #1e293b;
+    background: #2c3e50;
     color: white;
     padding: 60px 0 20px;
 }
@@ -520,7 +520,7 @@ body {
 }
 
 .footer-section p {
-    color: #94a3b8;
+    color: #bdc3c7;
     margin-bottom: 1rem;
 }
 
@@ -533,13 +533,13 @@ body {
 }
 
 .footer-section ul li a {
-    color: #94a3b8;
+    color: #bdc3c7;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-    color: white;
+    color: #81D8D0;
 }
 
 .social-links {
@@ -550,7 +550,7 @@ body {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: #334155;
+    background: #34495e;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -562,15 +562,355 @@ body {
 
 .social-links a:hover {
     background: #81D8D0;
-    color: #fff;
     transform: translateY(-2px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #334155;
-    color: #94a3b8;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+/* 页面标题样式 */
+.page-header {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, #81D8D0 0%, #5bc0be 50%, #0f3443 100%);
+    color: white;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 服务详情页面样式 */
+.services-detail {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.service-item {
+    background: white;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(129, 216, 208, 0.2);
+}
+
+.service-content {
+    padding: 3rem;
+}
+
+.service-icon-large {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.service-icon-large i {
+    font-size: 3rem;
+    color: white;
+}
+
+.service-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.service-description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.service-features h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.service-features ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.service-features li {
+    padding: 1rem;
+    background: #f8fbfc;
+    border-radius: 10px;
+    color: #7f8c8d;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 1rem;
+    color: #81D8D0;
+    font-weight: bold;
+}
+
+/* CTA部分样式 */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #81D8D0 0%, #5bc0be 50%, #0f3443 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* 关于我们页面样式 */
+.about-intro {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+/* 时间线样式 */
+.timeline {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #81D8D0;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-year {
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+    margin: 0 2rem;
+    flex: 1;
+    max-width: 300px;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.timeline-content p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* 企业文化样式 */
+.culture {
+    padding: 80px 0;
+    background: white;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.culture-item {
+    text-align: center;
+    padding: 2rem;
+    background: #f8fbfc;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.culture-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(129, 216, 208, 0.2);
+}
+
+.culture-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.culture-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.culture-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.culture-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* 统计数据页面样式 */
+.stats-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #81D8D0 0%, #5bc0be 50%, #0f3443 100%);
+    color: white;
+}
+
+.stats-section .section-title {
+    color: white;
+}
+
+.stats-section .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stats-section .stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.stats-section .stat-item h3 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stats-section .stat-item p {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* 合作伙伴样式 */
+.partners {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.partner-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+    transition: all 0.3s ease;
+}
+
+.partner-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(129, 216, 208, 0.2);
+}
+
+.partner-item i {
+    font-size: 2.5rem;
+    color: #81D8D0;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.partner-item span {
+    font-weight: 600;
+    color: #2c3e50;
 }
 
 /* 响应式设计 */
@@ -611,6 +951,66 @@ body {
     .stats {
         grid-template-columns: 1fr;
     }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .service-content {
+        padding: 2rem;
+    }
+    
+    .service-content h2 {
+        font-size: 2rem;
+    }
+    
+    .service-features ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-icon-large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .service-icon-large i {
+        font-size: 2.5rem;
+    }
+
+    .timeline-container::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        margin-left: 60px;
+    }
+    
+    .timeline-year {
+        position: absolute;
+        left: -60px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        margin: 0;
+        max-width: none;
+    }
+    
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-section .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 480px) {
@@ -634,6 +1034,30 @@ body {
     .btn {
         width: 100%;
         max-width: 250px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .service-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-section .stats {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -679,5 +1103,550 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #0f3443;
+    background: #5bc0be;
+} 
+
+/* 团队页面样式 */
+.team-intro {
+    padding: 60px 0;
+    background: white;
+}
+
+.team-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.team-content p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    line-height: 1.7;
+}
+
+.team-members {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.team-member-detail {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.team-member-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(129, 216, 208, 0.2);
+}
+
+.member-avatar-large {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.member-avatar-large i {
+    font-size: 4rem;
+    color: white;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.member-role {
+    color: #81D8D0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.member-desc {
+    color: #7f8c8d;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.member-skills h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.member-contact a {
+    color: #81D8D0;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.member-contact a:hover {
+    color: #5bc0be;
+}
+
+/* 加入我们样式 */
+.join-us {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #81D8D0 0%, #5bc0be 50%, #0f3443 100%);
+    color: white;
+    text-align: center;
+}
+
+.join-us h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.join-us > .container > p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.join-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.join-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.join-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.join-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.join-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.join-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.join-item p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* 响应式设计补充 */
+@media (max-width: 768px) {
+    .team-member-detail {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .member-avatar-large {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .member-avatar-large i {
+        font-size: 3rem;
+    }
+    
+    .member-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .skills-tags {
+        justify-content: center;
+    }
+    
+    .join-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member-detail {
+        padding: 1.5rem;
+    }
+    
+    .member-avatar-large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .member-avatar-large i {
+        font-size: 2.5rem;
+    }
+    
+    .member-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .join-us h2 {
+        font-size: 2rem;
+    }
+} 
+
+/* 联系我们页面样式 */
+.contact-info-section {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(129, 216, 208, 0.2);
+}
+
+.contact-card .contact-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-card .contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.contact-card p {
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+/* 联系表单样式 */
+.contact-form-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.contact-form-container p {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    background: #f8fbfc;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e8f6f6;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #81D8D0;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 侧边栏样式 */
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-item {
+    background: #f8fbfc;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.sidebar-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.sidebar-item ul {
+    list-style: none;
+}
+
+.sidebar-item ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: #7f8c8d;
+}
+
+.sidebar-item ul li i {
+    color: #81D8D0;
+    font-size: 0.9rem;
+}
+
+/* 服务流程样式 */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #81D8D0, #5bc0be);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.step-content p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* 地图区域样式 */
+.map-section {
+    padding: 80px 0;
+    background: #f8fbfc;
+}
+
+.map-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.map-placeholder {
+    background: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(129, 216, 208, 0.1);
+}
+
+.map-placeholder i {
+    font-size: 4rem;
+    color: #81D8D0;
+    margin-bottom: 1rem;
+}
+
+.map-placeholder p {
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+.map-placeholder p:first-of-type {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* 响应式设计补充 */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-container h2 {
+        font-size: 2rem;
+    }
+    
+    .map-section h2 {
+        font-size: 2rem;
+    }
+    
+    .map-placeholder {
+        padding: 2rem 1rem;
+    }
+    
+    .map-placeholder i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .sidebar-item {
+        padding: 1.5rem;
+    }
+    
+    .contact-form-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .map-section h2 {
+        font-size: 1.8rem;
+    }
 } 
