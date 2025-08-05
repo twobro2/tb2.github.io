@@ -1,145 +1,103 @@
-# Twobro - 个人网站
+# Twobro 个人网站
 
-## 项目简介
-
-这是Twobro的个人网站，采用现代化的响应式设计，展示个人技能、作品和联系方式。网站采用Tiffany风格的优雅配色方案，提供良好的用户体验，帮助访客了解我的专业能力和项目经验。
-
-## 设计特色
-
-### 🎨 Tiffany风格设计
-- 优雅的青蓝色配色方案 (#81D8D0)
-- 现代化的渐变效果和阴影
-- 流畅的动画过渡
-- 精致的卡片设计
-
-### 📱 响应式布局
-- 完美适配桌面、平板和手机
-- 移动端友好的导航菜单
-- 优化的触摸交互体验
-
-### ⚡ 交互功能
-- 平滑滚动导航
-- 表单验证和提交
-- 实时通知系统
-- 数字计数动画
-- 滚动触发动画
-- 返回顶部按钮
-
-## 页面结构
-
-### 🏠 首页 (index.html)
-- 个人介绍横幅
-- 技能展示卡片
-- 关于我简介
-- 作品预览
-- 联系信息
-
-### 👤 关于我 (about.html)
-- 个人简介
-- 成长历程时间线
-- 个人特质展示
-- 成就统计
-- 技术栈展示
-
-### 💻 技能 (skills.html)
-- 六大核心技能详细介绍
-- 技术栈列表
-- 技能描述和特点
-- 联系合作CTA
-
-### 🎨 作品 (portfolio.html)
-- 精选项目展示
-- 项目技术栈标签
-- 项目描述和链接
-- 合作邀请
-
-### 📞 联系 (contact.html)
-- 联系信息卡片
-- 项目咨询表单
-- 合作流程说明
-- 服务优势介绍
+一个现代化的个人网站，展示技术栈、技能和作品。
 
 ## 技术栈
 
-- **HTML5**: 语义化标签结构
-- **CSS3**: 现代化样式和动画
-- **JavaScript**: 交互功能和动态效果
-- **Font Awesome**: 图标库
-- **Google Fonts**: 字体优化
+- **前端**: HTML5, CSS3, JavaScript (ES6+)
+- **样式**: 自定义CSS，Tiffany配色方案
+- **图标**: Font Awesome 6.0
+- **字体**: Inter (Google Fonts)
+- **部署**: GitHub Pages
 
-## 配色方案
+## 网站特性
 
-- **主色调**: #81D8D0 (Tiffany蓝)
-- **浅色**: #E8F6F3 (浅Tiffany蓝)
-- **深色**: #5BA3A0 (深Tiffany蓝)
-- **白色**: #FFFFFF
-- **文字深色**: #2c3e50
-- **文字浅色**: #7f8c8d
+### 🎨 设计特色
+- 现代化的Tiffany蓝色主题
+- 响应式设计，支持移动端
+- 平滑的动画效果
+- 专业的排版和布局
+
+### 🚀 技术特性
+- **托管**: GitHub Pages
+- **CDN**: Cloudflare全球加速
+- **安全**: TLS 1.2/1.3加密
+- **性能**: IPv4/IPv6双栈支持
+
+### 📱 功能模块
+- 个人介绍和技能展示
+- 作品集展示
+- 技术栈介绍
+- 联系方式
+
+## 部署到GitHub Pages
+
+### 方法一：自动部署（推荐）
+
+1. 将代码推送到GitHub仓库
+2. 在仓库设置中启用GitHub Pages
+3. 选择部署源为 `gh-pages` 分支
+4. 每次推送到 `main` 分支时会自动部署
+
+### 方法二：手动部署
+
+1. 克隆仓库到本地
+2. 安装依赖（如果需要）
+3. 推送到GitHub
+4. 在仓库设置中启用GitHub Pages
 
 ## 文件结构
 
 ```
-test1/
-├── index.html          # 主页面
-├── about.html          # 关于我页面
+├── index.html          # 首页
+├── about.html          # 关于页面
 ├── skills.html         # 技能页面
 ├── portfolio.html      # 作品页面
 ├── contact.html        # 联系页面
+├── 404.html           # 404错误页面
 ├── styles.css          # 样式文件
-├── script.js           # JavaScript功能
-└── README.md          # 项目说明
+├── script.js           # JavaScript文件
+├── README.md           # 说明文档
+└── .github/workflows/  # GitHub Actions配置
+    └── deploy.yml      # 自动部署配置
 ```
 
-## 使用方法
-
-1. **直接打开**: 在浏览器中打开 `index.html` 文件
-2. **本地服务器**: 使用本地服务器运行以获得最佳体验
-3. **部署**: 可部署到任何静态网站托管服务
-
-## 浏览器兼容性
-
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-
-## 自定义说明
+## 自定义配置
 
 ### 修改个人信息
-在各个HTML文件中修改以下内容：
-- 个人姓名和Logo
-- 联系信息
-- 技能描述
-- 项目案例
+编辑各个HTML文件中的个人信息部分。
 
-### 调整样式
-在 `styles.css` 中自定义：
-- 颜色主题（Tiffany配色方案）
-- 字体样式
-- 布局间距
-- 动画效果
+### 修改样式
+编辑 `styles.css` 文件中的CSS变量：
+```css
+:root {
+    --tiffany-blue: #81D8D0;
+    --tiffany-light: #E8F6F3;
+    --tiffany-dark: #5BA3A0;
+    /* 其他颜色变量 */
+}
+```
 
-### 添加功能
-在 `script.js` 中扩展：
-- 表单处理逻辑
-- 动画效果
-- 交互功能
+### 添加新页面
+1. 创建新的HTML文件
+2. 复制现有页面的基本结构
+3. 在导航栏中添加链接
+4. 添加相应的样式
 
-## 性能优化
+## 浏览器支持
 
-- 使用CDN加载外部资源
-- 优化的CSS和JavaScript
-- 响应式图片处理
-- 平滑的动画过渡
+- Chrome (推荐)
+- Firefox
+- Safari
+- Edge
 
 ## 许可证
 
-本项目采用 MIT 许可证。
+MIT License
 
 ## 联系方式
 
-如有问题或建议，请联系Twobro。
-
----
-
-**Twobro** - 专注于创造优秀的数字体验 
+- 邮箱: twobro@example.com
+- 微信: twobro-dev
+- GitHub: github.com/twobro
+- LinkedIn: linkedin.com/in/twobro 
