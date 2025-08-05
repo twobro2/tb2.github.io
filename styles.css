@@ -237,6 +237,73 @@ body {
 }
 
 /* 技能部分 */
+/* 技术栈介绍 */
+.tech-stack {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--tiffany-light) 0%, var(--white) 100%);
+}
+
+.tech-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.tech-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.tech-info h3:first-child {
+    margin-top: 0;
+}
+
+.tech-info p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.tech-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.tech-icon-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.tech-icon-item i {
+    font-size: 2.5rem;
+    color: var(--tiffany-blue);
+    margin-bottom: 15px;
+}
+
+.tech-icon-item span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
 .skills {
     padding: 100px 0;
     background: var(--white);
@@ -637,6 +704,15 @@ body {
     }
     
     .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .tech-icons {
         grid-template-columns: 1fr;
     }
 }
