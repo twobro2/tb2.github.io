@@ -533,11 +533,13 @@ ul {
     margin-bottom: 0;
 }
 
-/* 书卡按钮容器：始终贴底 */
-.book-info .btn,
-.book-card .btn {
+/* 书卡按钮容器：始终贴底对齐 */
+.book-actions {
     margin-top: auto;
-    align-self: center;
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 /* =============================================

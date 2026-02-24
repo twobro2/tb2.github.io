@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="padding-top: 70px;">
+<body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
@@ -33,24 +33,22 @@
     </nav>
 
     <!-- 页面标题 -->
-    <header class="page-header" style="padding: 80px 0 60px;">
+    <section class="page-header">
         <div class="container">
             <h1>译作书库</h1>
             <p>探索跨越语言边界的思想与故事</p>
         </div>
-    </header>
+    </section>
 
     <!-- 书库网格 -->
-    <section class="portfolio" style="padding: 40px 0 100px;">
+    <section class="portfolio">
         <div class="container">
 
-            <!-- 分类标签 (可选功能预留) -->
-            <div style="display: flex; gap: 15px; margin-bottom: 40px; justify-content: center; flex-wrap: wrap;">
-                <span class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">全部</span>
-                <span class="btn btn-secondary"
-                    style="padding: 8px 20px; font-size: 0.9rem; border-color: rgba(129, 216, 208, 0.4); color: var(--text-light);">设计与心理学</span>
-                <span class="btn btn-secondary"
-                    style="padding: 8px 20px; font-size: 0.9rem; border-color: rgba(129, 216, 208, 0.4); color: var(--text-light);">个人成长</span>
+            <!-- 分类标签 -->
+            <div style="display: flex; gap: 12px; margin-bottom: 40px; justify-content: center; flex-wrap: wrap;">
+                <span class="btn btn-primary btn-sm">全部</span>
+                <span class="btn btn-secondary btn-sm">设计与心理学</span>
+                <span class="btn btn-secondary btn-sm">个人成长</span>
             </div>
 
             <div class="portfolio-grid">
@@ -63,8 +61,8 @@
                         <h3>《设计之美》</h3>
                         <p class="portfolio-role">原著作者：John Doe</p>
                         <p class="portfolio-desc">探索现代数字产品设计背后的心理学与美学原则。深入解析如何创造动人心弦的用户体验。</p>
-                        <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;">
-                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        <div class="book-actions">
+                            <a href="reader.html" class="btn btn-primary btn-sm">开始阅读</a>
                         </div>
                     </div>
                 </div>
@@ -78,8 +76,8 @@
                         <h3>《认知盲区》</h3>
                         <p class="portfolio-role">原著作者：Jane Smith</p>
                         <p class="portfolio-desc">揭示我们在日常决策中常犯的逻辑谬误，帮助你建立更清晰、理性的思维框架。</p>
-                        <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;">
-                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">开始阅读</a>
                         </div>
                     </div>
                 </div>
@@ -93,8 +91,8 @@
                         <h3>《未来的工作》</h3>
                         <p class="portfolio-role">原著作者：Alex Tech</p>
                         <p class="portfolio-desc">人工智能时代下，个人职业发展的全面指南。探讨哪些技能将成为未来的核心竞争力。</p>
-                        <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;">
-                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">开始阅读</a>
                         </div>
                     </div>
                 </div>
@@ -108,8 +106,8 @@
                         <h3>《时间管理哲学》</h3>
                         <p class="portfolio-role">原著作者：Mark Time</p>
                         <p class="portfolio-desc">不仅仅是提高效率的工具，更是一种重新审视生命价值和目标设定的哲学思考。</p>
-                        <div style="margin-top: auto; display: flex; gap: 10px; justify-content: center;">
-                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">开始阅读</a>
                         </div>
                     </div>
                 </div>
@@ -124,19 +122,19 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Twobro</h3>
-                    <p>打破语言边界，传递思想力量</p>
+                    <p>保持好奇，持续探索</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>快速链接</h3>
+                    <h3>导航</h3>
                     <ul>
-                        <li><a href="index.html">返回首页</a></li>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
                         <li><a href="translations.html">译作书库</a></li>
-                        <li><a href="about.html">关于译者</a></li>
-                        <li><a href="contact.html">留言交流</a></li>
+                        <li><a href="contact.html">联系</a></li>
                     </ul>
                 </div>
             </div>
