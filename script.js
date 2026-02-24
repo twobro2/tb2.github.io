@@ -7,11 +7,11 @@ window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 10, 15, 0.92)';
-        navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.06)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.borderBottomColor = 'rgba(0, 0, 0, 0.08)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 15, 0.7)';
-        navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.85)';
+        navbar.style.borderBottomColor = 'rgba(0, 0, 0, 0.06)';
     }
 });
 
@@ -71,7 +71,7 @@ const progressBar = document.createElement('div');
 progressBar.style.cssText = `
     position: fixed; top: 0; left: 0; width: 0%;
     height: 2px; z-index: 10001;
-    background: linear-gradient(90deg, #6ee7b7, #34d399, #a78bfa);
+    background: linear-gradient(90deg, #10b981, #059669, #6366f1);
     transition: width 0.1s ease;
 `;
 document.body.appendChild(progressBar);
@@ -90,9 +90,9 @@ backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTop.style.cssText = `
     position: fixed; bottom: 28px; right: 28px;
     width: 44px; height: 44px; border-radius: 12px;
-    background: rgba(110, 231, 183, 0.15);
-    border: 1px solid rgba(110, 231, 183, 0.2);
-    color: #6ee7b7; cursor: pointer;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981; cursor: pointer;
     opacity: 0; visibility: hidden;
     transition: all 0.3s ease; z-index: 1000;
     backdrop-filter: blur(10px);
