@@ -11,370 +11,659 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
-        /* ===== 架构图专用样式 ===== */
-        .arch-diagram {
-            margin: 36px 0;
-            font-family: 'Inter', sans-serif;
+        /* ===== Cisco 原文架构图 1:1 复刻样式 ===== */
+        /* Cisco 官方色彩系统 */
+        :root {
+            --cisco-navy: #1b2838;
+            --cisco-dark: #0d1b2a;
+            --cisco-teal: #00bceb;
+            --cisco-teal-dark: #049fd9;
+            --cisco-cyan: #6abfb5;
+            --cisco-green: #6cc04a;
+            --cisco-yellow: #ffcc00;
+            --cisco-red: #e2231a;
+            --cisco-white: #ffffff;
+            --cisco-gray: #f7f7f7;
+            --cisco-border: rgba(0, 188, 235, 0.5);
         }
 
-        .arch-diagram .diagram-title {
+        .cisco-diagram {
+            margin: 40px 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.72rem;
+            line-height: 1.3;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .cisco-diagram .diagram-caption {
             text-align: center;
             font-size: 0.8rem;
             color: #94a3b8;
-            margin-bottom: 16px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
         }
 
-        /* --- 图1: PINs 网络位置 --- */
-        .pins-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        /* ===== 图1: 主架构总览 ===== */
+        .sra-master {
+            background: var(--cisco-teal);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--cisco-teal);
+            min-width: 680px;
+        }
+
+        /* Cloud Platform 顶栏 */
+        .sra-cloud-platform {
+            background: var(--cisco-navy);
+            padding: 8px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sra-cloud-platform .cp-label {
+            font-weight: 700;
+            color: var(--cisco-white);
+            font-size: 0.7rem;
+        }
+
+        .sra-cloud-platform .cp-sub {
+            color: var(--cisco-teal);
+            font-size: 0.62rem;
+        }
+
+        .sra-cloud-platform .cp-tags {
+            display: flex;
+            gap: 16px;
+        }
+
+        .sra-cloud-platform .cp-tag {
+            color: var(--cisco-white);
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.85;
+        }
+
+        .sra-cloud-platform .cp-tag::before {
+            content: '◇';
+            color: var(--cisco-teal);
+            font-size: 0.5rem;
+        }
+
+        /* Talos 威胁情报条 */
+        .sra-talos {
+            background: var(--cisco-navy);
+            border-top: 1px solid rgba(0, 188, 235, 0.2);
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .sra-talos .talos-label {
+            color: var(--cisco-white);
+            font-weight: 700;
+            font-size: 0.68rem;
+            white-space: nowrap;
+        }
+
+        .sra-talos .talos-items {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .sra-talos .talos-item {
+            color: var(--cisco-teal);
+            font-size: 0.58rem;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .sra-talos .talos-item::before {
+            content: '◆';
+            font-size: 0.4rem;
+        }
+
+        /* SOC 条 */
+        .sra-soc {
+            background: var(--cisco-navy);
+            border-top: 1px solid rgba(0, 188, 235, 0.15);
+            padding: 6px 14px;
+            display: flex;
             gap: 12px;
-            margin-bottom: 20px;
+            align-items: flex-start;
         }
 
-        .pin-card {
-            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
-            border: 1px solid #d1fae5;
-            border-radius: 12px;
-            padding: 18px 14px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .sra-soc .soc-label {
+            color: var(--cisco-white);
+            font-weight: 700;
+            font-size: 0.64rem;
+            white-space: nowrap;
+            min-width: 140px;
         }
 
-        .pin-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.12);
-        }
-
-        .pin-card i {
-            font-size: 1.5rem;
-            color: #10b981;
-            margin-bottom: 8px;
+        .sra-soc .soc-sub {
+            color: var(--cisco-teal);
+            font-size: 0.55rem;
             display: block;
-        }
-
-        .pin-card .pin-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #1a1a2e;
-        }
-
-        .pin-card .pin-name-en {
-            font-size: 0.72rem;
-            color: #94a3b8;
             margin-top: 2px;
         }
 
-        .domains-bar {
-            background: linear-gradient(90deg, #10b981, #059669);
-            color: #fff;
-            border-radius: 10px;
-            padding: 14px 20px;
+        .sra-soc .soc-capabilities {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 8px;
             flex-wrap: wrap;
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
+            flex: 1;
         }
 
-        .domains-bar span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .sra-soc .soc-cap {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.56rem;
+            background: rgba(0, 188, 235, 0.08);
+            padding: 2px 6px;
+            border-radius: 3px;
         }
 
-        /* --- 图2: 四大安全模块主架构 --- */
-        .arch-main {
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        /* 中央核心区域 */
+        .sra-core {
+            background: var(--cisco-teal);
+            padding: 4px;
         }
 
-        .arch-header {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: #fff;
+        .sra-core-labels {
             text-align: center;
-            padding: 16px;
+            padding: 4px 0 2px;
         }
 
-        .arch-header h4 {
-            font-size: 1rem;
+        .sra-core-labels span {
+            display: inline-block;
+            color: var(--cisco-navy);
             font-weight: 700;
-            margin: 0;
-            letter-spacing: 0.03em;
+            font-size: 0.7rem;
+            margin: 0 10px;
         }
 
-        .arch-header p {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin: 4px 0 0;
+        /* User/Device Security 横条 */
+        .sra-user-device {
+            background: var(--cisco-white);
+            margin: 0 4px 4px;
+            border-radius: 4px;
+            padding: 6px 10px;
         }
 
-        .arch-pillars {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-        }
-
-        .arch-pillar {
-            padding: 20px 14px;
+        .sra-user-device .ud-title {
+            font-weight: 700;
+            color: var(--cisco-navy);
+            font-size: 0.68rem;
             text-align: center;
-            border-right: 1px solid #e2e8f0;
-            position: relative;
-        }
-
-        .arch-pillar:last-child {
-            border-right: none;
-        }
-
-        .arch-pillar .pillar-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            font-size: 1.1rem;
-        }
-
-        .arch-pillar:nth-child(1) .pillar-icon {
-            background: #dbeafe;
-            color: #3b82f6;
-        }
-
-        .arch-pillar:nth-child(2) .pillar-icon {
-            background: #d1fae5;
-            color: #10b981;
-        }
-
-        .arch-pillar:nth-child(3) .pillar-icon {
-            background: #fce7f3;
-            color: #ec4899;
-        }
-
-        .arch-pillar:nth-child(4) .pillar-icon {
-            background: #fef3c7;
-            color: #f59e0b;
-        }
-
-        .arch-pillar .pillar-title {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #1a1a2e;
             margin-bottom: 4px;
         }
 
-        .arch-pillar .pillar-subtitle {
-            font-size: 0.68rem;
-            color: #94a3b8;
-            margin-bottom: 10px;
-        }
-
-        .pillar-tags {
+        .sra-user-device .ud-items {
             display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            justify-content: center;
-        }
-
-        .pillar-tag {
-            font-size: 0.65rem;
-            padding: 3px 7px;
-            border-radius: 6px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #64748b;
-            line-height: 1.3;
-        }
-
-        .arch-foundation {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: #fff;
-            text-align: center;
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-        }
-
-        .arch-foundation .found-item {
-            display: flex;
-            align-items: center;
             gap: 6px;
-            font-size: 0.78rem;
-            font-weight: 500;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        /* --- 图3: 零信任三支柱 --- */
-        .zt-pillars {
+        .sra-user-device .ud-item {
+            font-size: 0.55rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .sra-user-device .ud-item i {
+            color: var(--cisco-teal-dark);
+            font-size: 0.5rem;
+        }
+
+        /* 四大网络域 */
+        .sra-network-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 4px;
+            margin: 0 4px 4px;
         }
 
-        .zt-card {
-            border-radius: 14px;
-            padding: 22px 16px;
+        .sra-net-zone {
+            background: var(--cisco-white);
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        .sra-net-zone .zone-header {
             text-align: center;
-            border: 1px solid;
-            transition: transform 0.2s ease;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 6px;
         }
 
-        .zt-card:hover {
-            transform: translateY(-3px);
+        .sra-net-zone .zone-title {
+            font-weight: 700;
+            color: var(--cisco-navy);
+            font-size: 0.65rem;
         }
 
-        .zt-card:nth-child(1) {
-            background: #eff6ff;
-            border-color: #bfdbfe;
+        .sra-net-zone .zone-subtitle {
+            color: var(--cisco-teal-dark);
+            font-size: 0.55rem;
         }
 
-        .zt-card:nth-child(2) {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
+        .sra-net-zone .zone-items {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
         }
 
-        .zt-card:nth-child(3) {
-            background: #fdf4ff;
-            border-color: #e9d5ff;
+        .sra-net-zone .zone-item {
+            font-size: 0.54rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 3px;
         }
 
-        .zt-card i {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+        .sra-net-zone .zone-item::before {
+            content: '▸';
+            color: var(--cisco-teal-dark);
+            font-size: 0.45rem;
+        }
+
+        /* Workload 底栏 */
+        .sra-workload {
+            background: var(--cisco-white);
+            margin: 0 4px 4px;
+            border-radius: 4px;
+            padding: 6px 10px;
+        }
+
+        .sra-workload .wl-title {
+            font-weight: 700;
+            color: var(--cisco-navy);
+            font-size: 0.68rem;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .sra-workload .wl-items {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sra-workload .wl-item {
+            font-size: 0.55rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .sra-workload .wl-item i {
+            color: var(--cisco-teal-dark);
+            font-size: 0.5rem;
+        }
+
+        /* ===== 图2: Security Cloud Control ===== */
+        .sra-scc-wrap {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--cisco-teal);
+        }
+
+        .sra-scc-header {
+            background: var(--cisco-teal);
+            text-align: center;
+            padding: 10px;
+            color: var(--cisco-navy);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .sra-scc-body {
+            background: linear-gradient(180deg, #0d3c5e, #0a2a40);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sra-scc-row {
+            background: rgba(0, 188, 235, 0.15);
+            border: 1px solid rgba(0, 188, 235, 0.3);
+            border-radius: 8px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--cisco-white);
+        }
+
+        .sra-scc-row i {
+            font-size: 1.4rem;
+            color: var(--cisco-teal);
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .sra-scc-row .scc-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .sra-scc-row .scc-desc {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: 2px;
+        }
+
+        /* Zero Trust 双列 */
+        .sra-scc-zt {
+            display: flex;
+            gap: 10px;
+        }
+
+        .sra-scc-zt-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.72rem;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .sra-scc-zt .scc-zt-card {
+            flex: 1;
+            background: rgba(0, 188, 235, 0.12);
+            border: 1px solid rgba(0, 188, 235, 0.25);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            color: var(--cisco-white);
+        }
+
+        .sra-scc-zt .scc-zt-card i {
+            font-size: 1.2rem;
+            color: var(--cisco-teal);
+            margin-bottom: 6px;
             display: block;
         }
 
-        .zt-card:nth-child(1) i {
-            color: #3b82f6;
+        .sra-scc-zt .scc-zt-card .zt-name {
+            font-size: 0.82rem;
+            font-weight: 600;
         }
 
-        .zt-card:nth-child(2) i {
-            color: #10b981;
-        }
-
-        .zt-card:nth-child(3) i {
-            color: #a855f7;
-        }
-
-        .zt-card .zt-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 2px;
-        }
-
-        .zt-card .zt-subtitle {
-            font-size: 0.72rem;
-            color: #94a3b8;
-            margin-bottom: 10px;
-        }
-
-        .zt-card .zt-desc {
-            font-size: 0.78rem;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        .zt-connector {
-            text-align: center;
-            margin: 16px 0 0;
-            font-size: 0.75rem;
-            color: #94a3b8;
-        }
-
-        .zt-connector span {
-            display: inline-block;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
+        /* ===== 图3: Universal ZTNA ===== */
+        .sra-ztna-outer {
+            background: var(--cisco-teal);
             border-radius: 8px;
-            padding: 8px 20px;
-            font-weight: 500;
-            color: #64748b;
+            border: 2px solid var(--cisco-teal);
+            overflow: hidden;
         }
 
-        /* --- 图4: SASE 流程 --- */
-        .sase-flow {
+        .sra-ztna-top {
+            background: var(--cisco-navy);
+            padding: 6px 14px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .sra-ztna-top .zt-badge {
+            background: var(--cisco-yellow);
+            color: var(--cisco-navy);
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .sra-ztna-top .zt-legend {
+            display: flex;
+            gap: 12px;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sra-ztna-top .zt-legend span::before {
+            content: '—';
+            margin-right: 4px;
+        }
+
+        .sra-ztna-body {
+            background: var(--cisco-white);
+            margin: 4px;
+            border-radius: 4px;
+            padding: 16px;
+            position: relative;
+        }
+
+        .sra-ztna-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .sra-ztna-users {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .sra-ztna-user {
+            background: var(--cisco-green);
+            color: var(--cisco-white);
+            font-weight: 700;
+            font-size: 0.72rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .sra-ztna-mid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .sra-ztna-zone {
+            text-align: center;
+            font-size: 0.6rem;
+            color: var(--cisco-navy);
+            font-weight: 600;
+            padding: 6px;
+            border: 1px dashed #cbd5e0;
+            border-radius: 4px;
+        }
+
+        .sra-ztna-zone .ztna-product {
+            background: var(--cisco-navy);
+            color: var(--cisco-white);
+            font-size: 0.62rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+        .sra-ztna-arrows {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            color: var(--cisco-navy);
+            font-size: 1rem;
+        }
+
+        .sra-ztna-bottom {
+            display: flex;
             justify-content: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .sra-ztna-dc {
+            background: var(--cisco-cyan);
+            color: var(--cisco-navy);
+            font-weight: 700;
+            font-size: 0.72rem;
+            padding: 8px 20px;
+            border-radius: 4px;
+        }
+
+        .sra-ztna-internet {
+            background: var(--cisco-teal);
+            color: var(--cisco-white);
+            padding: 8px 16px;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        /* ===== 图4: SOC / XDR ↔ SIEM ===== */
+        .sra-soc-outer {
+            background: var(--cisco-teal);
+            border-radius: 8px;
+            border: 2px solid var(--cisco-teal);
+            overflow: hidden;
+        }
+
+        .sra-xdr-siem {
+            background: var(--cisco-navy);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .sra-xdr-box,
+        .sra-siem-box {
+            border: 2px solid var(--cisco-yellow);
+            padding: 8px 28px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .sra-xdr-box span,
+        .sra-siem-box span {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--cisco-white);
+            letter-spacing: 0.05em;
+        }
+
+        .sra-xdr-arrow {
+            color: var(--cisco-white);
+            font-size: 1.2rem;
+        }
+
+        .sra-soc-pipeline {
+            background: var(--cisco-navy);
+            border-top: 1px solid rgba(0, 188, 235, 0.2);
+            padding: 10px 14px;
+            display: flex;
             gap: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sra-soc-step {
+            background: rgba(0, 188, 235, 0.15);
+            border: 1px solid rgba(0, 188, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+            color: var(--cisco-white);
+            font-size: 0.68rem;
+            font-weight: 600;
+        }
+
+        .sra-soc-step-arrow {
+            color: var(--cisco-teal);
+            margin: 0 4px;
+            font-size: 0.9rem;
+        }
+
+        .sra-telemetry {
+            padding: 10px 14px 14px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .sase-node {
-            padding: 14px 18px;
-            border-radius: 12px;
+        .sra-tel-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .sra-tel-arrow .tel-bar {
+            width: 24px;
+            height: 36px;
+            border-radius: 3px;
+        }
+
+        .sra-tel-arrow .tel-bar.green {
+            background: var(--cisco-green);
+        }
+
+        .sra-tel-arrow .tel-bar.blue {
+            background: var(--cisco-teal);
+        }
+
+        .sra-tel-arrow .tel-bar.red {
+            background: var(--cisco-red);
+        }
+
+        .sra-tel-arrow .tel-label {
+            font-size: 0.52rem;
+            color: var(--cisco-navy);
             text-align: center;
-            font-size: 0.8rem;
             font-weight: 600;
-            min-width: 120px;
+            max-width: 50px;
         }
 
-        .sase-node.user {
-            background: #dbeafe;
-            color: #1e40af;
-            border: 1px solid #bfdbfe;
+        .sra-tel-arrow i {
+            font-size: 0.65rem;
         }
 
-        .sase-node.cloud {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
+        .sra-tel-arrow i.up {
+            color: var(--cisco-red);
         }
 
-        .sase-node.app {
-            background: #fce7f3;
-            color: #9d174d;
-            border: 1px solid #fbcfe8;
-        }
-
-        .sase-arrow {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin: 0 8px;
-        }
-
-        .sase-node .node-sub {
-            font-size: 0.68rem;
-            font-weight: 400;
-            color: inherit;
-            opacity: 0.7;
-            margin-top: 3px;
+        .sra-tel-arrow i.down {
+            color: var(--cisco-green);
         }
 
         /* 响应式 */
-        @media (max-width: 640px) {
-            .pins-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .arch-pillars {
+        @media (max-width: 720px) {
+            .sra-network-grid {
                 grid-template-columns: 1fr 1fr;
             }
 
-            .arch-pillar {
-                border-bottom: 1px solid #e2e8f0;
+            .sra-ztna-mid {
+                grid-template-columns: 1fr 1fr;
             }
 
-            .zt-pillars {
-                grid-template-columns: 1fr;
+            .sra-soc-pipeline {
+                flex-wrap: wrap;
+                gap: 6px;
             }
 
-            .sase-flow {
-                flex-direction: column;
-            }
-
-            .sase-arrow {
-                transform: rotate(90deg);
-                margin: 6px 0;
+            .sra-master {
+                min-width: 500px;
             }
         }
     </style>
@@ -417,157 +706,213 @@
             <h2>第一章：安全参考架构的演进</h2>
 
             <h3>1.1 从 Cisco SAFE 到现代安全架构</h3>
-            <p>
-                Cisco 安全参考架构的历史可以追溯到最初的「Cisco SAFE」（企业网络安全蓝图）。随着时间的推移，它从一个以设备部署为中心的安全模型，逐步演进为融合了零信任（Zero
-                Trust）和安全访问服务边缘（SASE）等现代理念的综合性安全框架。
+            <p>Cisco 安全参考架构的历史可以追溯到最初的「Cisco SAFE」（企业网络安全蓝图）。随着时间的推移，它从一个以设备部署为中心的安全模型，逐步演进为融合了零信任（Zero
+                Trust）和安全访问服务边缘（SASE）等现代理念的综合性安全框架。</p>
+            <p>该架构的核心原则是：<strong>一个安全的网络不仅仅是部署安全设备，更必须在确保安全的同时提供关键的业务服务</strong>。它采用"纵深防御"（Defense-in-Depth）策略，通过分层的安全体系来实现威胁缓解，而非依赖单一的安全功能点。
             </p>
-            <p>
-                该架构的核心原则是：<strong>一个安全的网络不仅仅是部署安全设备，更必须在确保安全的同时提供关键的业务服务</strong>。它采用"纵深防御"（Defense-in-Depth）策略，通过分层的安全体系来实现威胁缓解，而非依赖单一的安全功能点。
-            </p>
-            <p>
-                整个架构设计为可弹性伸缩、模块化的结构，支持分阶段实施，并能有效处理网络各功能模块之间的安全关系。
-            </p>
+            <p>整个架构设计为可弹性伸缩、模块化的结构，支持分阶段实施，并能有效处理网络各功能模块之间的安全关系。</p>
 
             <h3>1.2 早期核心概念</h3>
-            <p>
-                最初的 Cisco SAFE 蓝图使用两个核心概念来组织安全体系：
-            </p>
+            <p>最初的 Cisco SAFE 蓝图使用两个核心概念来组织安全体系：</p>
             <ul>
                 <li><strong>网络中的位置（Places in the Network,
                         PINs）：</strong>代表典型的网络场景及其所需的基础设施，例如数据中心、分支机构、园区网络、广域网（WAN）、互联网边缘以及云环境。</li>
                 <li><strong>安全域（Secure Domains）：</strong>贯穿整个网络的安全运营领域，涵盖管理、安全情报、合规、分段、威胁防御和安全服务等方面。</li>
             </ul>
-
-            <!-- ========== 架构图1: PINs 网络位置 ========== -->
-            <div class="arch-diagram">
-                <div class="diagram-title">图 1 — 网络中的位置 (PINs) 与安全域</div>
-                <div class="pins-grid">
-                    <div class="pin-card">
-                        <i class="fas fa-server"></i>
-                        <div class="pin-name">数据中心</div>
-                        <div class="pin-name-en">Data Center</div>
-                    </div>
-                    <div class="pin-card">
-                        <i class="fas fa-building"></i>
-                        <div class="pin-name">园区网络</div>
-                        <div class="pin-name-en">Campus</div>
-                    </div>
-                    <div class="pin-card">
-                        <i class="fas fa-code-branch"></i>
-                        <div class="pin-name">分支机构</div>
-                        <div class="pin-name-en">Branch</div>
-                    </div>
-                    <div class="pin-card">
-                        <i class="fas fa-network-wired"></i>
-                        <div class="pin-name">广域网</div>
-                        <div class="pin-name-en">WAN</div>
-                    </div>
-                    <div class="pin-card">
-                        <i class="fas fa-globe"></i>
-                        <div class="pin-name">互联网边缘</div>
-                        <div class="pin-name-en">Internet Edge</div>
-                    </div>
-                    <div class="pin-card">
-                        <i class="fas fa-cloud"></i>
-                        <div class="pin-name">云环境</div>
-                        <div class="pin-name-en">Cloud</div>
-                    </div>
-                </div>
-                <div class="domains-bar">
-                    <span><i class="fas fa-cog"></i> 管理</span>
-                    <span><i class="fas fa-brain"></i> 安全情报</span>
-                    <span><i class="fas fa-clipboard-check"></i> 合规</span>
-                    <span><i class="fas fa-layer-group"></i> 分段</span>
-                    <span><i class="fas fa-shield-alt"></i> 威胁防御</span>
-                    <span><i class="fas fa-lock"></i> 安全服务</span>
-                </div>
-            </div>
-
-            <p>
-                随着虚拟化、云计算、Web 2.0 技术的兴起，以及僵尸网络、高级身份盗窃、Web 应用层攻击等更复杂威胁的出现，该架构也在持续进化以应对不断变化的网络和安全态势。
-            </p>
+            <p>随着虚拟化、云计算、Web 2.0 技术的兴起，以及僵尸网络、高级身份盗窃、Web 应用层攻击等更复杂威胁的出现，该架构也在持续进化以应对不断变化的网络和安全态势。</p>
 
             <!-- 第二章 -->
             <h2>第二章：四大安全模块</h2>
-            <p>
-                在 2.0.1 版本中，Cisco 安全参考架构将安全能力划分为四个主要类别，与现代客户网络环境紧密对齐：
-            </p>
+            <p>在 2.0.1 版本中，Cisco 安全参考架构将安全能力划分为四个主要类别，与现代客户网络环境紧密对齐：</p>
 
-            <!-- ========== 架构图2: 四大安全模块主架构 ========== -->
-            <div class="arch-diagram">
-                <div class="diagram-title">图 2 — Cisco 安全参考架构总览 (v2.0.1)</div>
-                <div class="arch-main">
-                    <div class="arch-header">
-                        <h4>Cisco Security Reference Architecture</h4>
-                        <p>安全参考架构 · 四大核心模块</p>
-                    </div>
-                    <div class="arch-pillars">
-                        <div class="arch-pillar">
-                            <div class="pillar-icon"><i class="fas fa-user-shield"></i></div>
-                            <div class="pillar-title">用户/设备安全</div>
-                            <div class="pillar-subtitle">Zero Trust Workforce</div>
-                            <div class="pillar-tags">
-                                <span class="pillar-tag">Duo MFA</span>
-                                <span class="pillar-tag">统一客户端</span>
-                                <span class="pillar-tag">无密码认证</span>
-                                <span class="pillar-tag">EDR</span>
-                                <span class="pillar-tag">设备合规</span>
-                            </div>
+            <!-- ===== 图1: 主架构总览图 (1:1 复刻 P2) ===== -->
+            <div class="cisco-diagram">
+                <div class="diagram-caption">图 1 — Security Reference Architecture 主架构总览</div>
+                <div class="sra-master">
+                    <!-- Cloud Platform -->
+                    <div class="sra-cloud-platform">
+                        <div>
+                            <div class="cp-label">Cloud Platform</div>
+                            <div class="cp-sub">Security Cloud Control</div>
                         </div>
-                        <div class="arch-pillar">
-                            <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
-                            <div class="pillar-title">网络安全</div>
-                            <div class="pillar-subtitle">Network Security</div>
-                            <div class="pillar-tags">
-                                <span class="pillar-tag">Umbrella</span>
-                                <span class="pillar-tag">Secure Firewall</span>
-                                <span class="pillar-tag">ISE</span>
-                                <span class="pillar-tag">SD-WAN</span>
-                                <span class="pillar-tag">ZTNA</span>
-                                <span class="pillar-tag">CASB</span>
-                            </div>
-                        </div>
-                        <div class="arch-pillar">
-                            <div class="pillar-icon"><i class="fas fa-cubes"></i></div>
-                            <div class="pillar-title">应用安全</div>
-                            <div class="pillar-subtitle">Zero Trust Workload</div>
-                            <div class="pillar-tags">
-                                <span class="pillar-tag">Secure Workload</span>
-                                <span class="pillar-tag">AppDynamics</span>
-                                <span class="pillar-tag">API 安全</span>
-                                <span class="pillar-tag">微分段</span>
-                                <span class="pillar-tag">云原生安全</span>
-                            </div>
-                        </div>
-                        <div class="arch-pillar">
-                            <div class="pillar-icon"><i class="fas fa-radar"></i></div>
-                            <div class="pillar-title">安全运营</div>
-                            <div class="pillar-subtitle">SecureX + Talos</div>
-                            <div class="pillar-tags">
-                                <span class="pillar-tag">XDR</span>
-                                <span class="pillar-tag">自动化编排</span>
-                                <span class="pillar-tag">威胁猎杀</span>
-                                <span class="pillar-tag">Talos 情报</span>
-                                <span class="pillar-tag">第三方集成</span>
-                            </div>
+                        <div class="cp-tags">
+                            <span class="cp-tag">CLOUD-BASED</span>
+                            <span class="cp-tag">Identity Intelligence</span>
+                            <span class="cp-tag">MULTICLOUD</span>
+                            <span class="cp-tag">Unified Management & Risk Assessment</span>
+                            <span class="cp-tag">AI / ML DRIVEN</span>
+                            <span class="cp-tag">OPEN & EXTENSIBLE</span>
                         </div>
                     </div>
-                    <div class="arch-foundation">
-                        <div class="found-item"><i class="fas fa-eye"></i> 可见性</div>
-                        <div class="found-item"><i class="fas fa-robot"></i> 自动化</div>
-                        <div class="found-item"><i class="fas fa-search"></i> 威胁情报</div>
-                        <div class="found-item"><i class="fas fa-plug"></i> 集成平台</div>
+                    <!-- Talos -->
+                    <div class="sra-talos">
+                        <div class="talos-label">TALOS THREAT INTELLIGENCE</div>
+                        <div class="talos-items">
+                            <span class="talos-item">Actionable threat intelligence</span>
+                            <span class="talos-item">Collective responses</span>
+                            <span class="talos-item">Comprehensive visibility</span>
+                            <span class="talos-item">Signal identification</span>
+                            <span class="talos-item">Threat research & analysis</span>
+                        </div>
+                    </div>
+                    <!-- SOC -->
+                    <div class="sra-soc">
+                        <div>
+                            <div class="soc-label">SECURITY OPERATIONS CENTER</div>
+                            <span class="soc-sub">Cisco Vulnerability Mgmt | Secure Analytics<br>XDR | Breach Protection
+                                Suite | Security Cloud Control<br>Talos Incident Response</span>
+                        </div>
+                        <div class="soc-capabilities">
+                            <span class="soc-cap">Network detection & response</span>
+                            <span class="soc-cap">Asset discovery & insights</span>
+                            <span class="soc-cap">Endpoint detection & response</span>
+                            <span class="soc-cap">Managed detection & response</span>
+                            <span class="soc-cap">Open API platform & 3rd party native integrations</span>
+                            <span class="soc-cap">Risk-based vulnerability management</span>
+                            <span class="soc-cap">Identity Threat Detection & Response</span>
+                            <span class="soc-cap">SOAR</span>
+                            <span class="soc-cap">SIEM</span>
+                            <span class="soc-cap">Attack Analysis & Forensics</span>
+                        </div>
+                    </div>
+                    <!-- 核心区域 -->
+                    <div class="sra-core">
+                        <div class="sra-core-labels">
+                            <span>⊕ ZERO TRUST</span>
+                            <span>⊕ SASE</span>
+                        </div>
+                        <!-- User / Device Security -->
+                        <div class="sra-user-device">
+                            <div class="ud-title">User / Device Security</div>
+                            <div class="ud-items">
+                                <span class="ud-item"><i class="fas fa-circle"></i> Cloud managed</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> VPN</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Telemetry & visibility</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Endpoint detection & response</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> DNS-layer security</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Secure web</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Posture</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Anti-virus / Anti-malware</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Host FW</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Mobile device management</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> ZTNA</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Risk-based MFA</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Passwordless</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> User trust</span>
+                                <span class="ud-item"><i class="fas fa-circle"></i> Identity intelligence</span>
+                            </div>
+                        </div>
+                        <!-- 四大网络域 -->
+                        <div class="sra-network-grid">
+                            <div class="sra-net-zone">
+                                <div class="zone-header">
+                                    <div class="zone-title">Cloud Edge Network</div>
+                                    <div class="zone-subtitle">SASE / Security Service Edge</div>
+                                    <div class="zone-subtitle">Secure Access | Umbrella | Secure Connect</div>
+                                </div>
+                                <div class="zone-items">
+                                    <span class="zone-item">Enterprise browser</span>
+                                    <span class="zone-item">Cloud access security broker</span>
+                                    <span class="zone-item">Cloud malware detection</span>
+                                    <span class="zone-item">Data loss prevention</span>
+                                    <span class="zone-item">DNS-layer security</span>
+                                    <span class="zone-item">FWaaS</span>
+                                    <span class="zone-item">Identity/Posture</span>
+                                    <span class="zone-item">Zero Trust Network Access</span>
+                                    <span class="zone-item">TLS decryption</span>
+                                    <span class="zone-item">Remote browser isolation</span>
+                                    <span class="zone-item">Secure web gateway</span>
+                                    <span class="zone-item">AI Access</span>
+                                    <span class="zone-item">Group tagging</span>
+                                    <span class="zone-item">Tenant restrictions</span>
+                                </div>
+                            </div>
+                            <div class="sra-net-zone">
+                                <div class="zone-header">
+                                    <div class="zone-title">SASE / SD-WAN</div>
+                                    <div class="zone-subtitle">Meraki | Secure Firewall</div>
+                                    <div class="zone-subtitle">ThousandEyes | Catalyst</div>
+                                </div>
+                                <div class="zone-items">
+                                    <span class="zone-item">IaaS</span>
+                                    <span class="zone-item">Analytics</span>
+                                    <span class="zone-item">Application performance optimization</span>
+                                    <span class="zone-item">Cloud based orchestration</span>
+                                    <span class="zone-item">Cloud OnRamp</span>
+                                    <span class="zone-item">Digital experience monitoring</span>
+                                    <span class="zone-item">IPsec VPN</span>
+                                    <span class="zone-item">Integrated security</span>
+                                    <span class="zone-item">Mobile rule optimization</span>
+                                    <span class="zone-item">Segmentation</span>
+                                    <span class="zone-item">Visibility</span>
+                                </div>
+                            </div>
+                            <div class="sra-net-zone">
+                                <div class="zone-header">
+                                    <div class="zone-title">In the Office / Managed Location</div>
+                                    <div class="zone-subtitle">Catalyst Center | ISE | Meraki</div>
+                                    <div class="zone-subtitle">Secure Network Analytics | Secure Web Appliance</div>
+                                </div>
+                                <div class="zone-items">
+                                    <span class="zone-item">Application network gateway</span>
+                                    <span class="zone-item">Group tagging</span>
+                                    <span class="zone-item">Configuration</span>
+                                    <span class="zone-item">Content filtering</span>
+                                    <span class="zone-item">Encrypted visibility</span>
+                                    <span class="zone-item">Identity/Hybrid/Cloud network access control</span>
+                                    <span class="zone-item">Network security analytics</span>
+                                    <span class="zone-item">Segmentation</span>
+                                    <span class="zone-item">Zero Trust Network Access</span>
+                                    <span class="zone-item">Profiling/Posture</span>
+                                </div>
+                            </div>
+                            <div class="sra-net-zone">
+                                <div class="zone-header">
+                                    <div class="zone-title">Industrial Threat Defense</div>
+                                    <div class="zone-subtitle">DNAC | SEA | CyberVision</div>
+                                    <div class="zone-subtitle">ISE | Secure Firewall | Secure Network Analytics</div>
+                                </div>
+                                <div class="zone-items">
+                                    <span class="zone-item">Anomaly detection</span>
+                                    <span class="zone-item">Compliance</span>
+                                    <span class="zone-item">Ruggedized</span>
+                                    <span class="zone-item">Threat logging</span>
+                                    <span class="zone-item">Identity pxGrid</span>
+                                    <span class="zone-item">Visibility</span>
+                                    <span class="zone-item">Security analytics & insights</span>
+                                    <span class="zone-item">Segmentation</span>
+                                    <span class="zone-item">Threat mitigation</span>
+                                    <span class="zone-item">NGFW</span>
+                                    <span class="zone-item">Zero Trust Network Access</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Workload -->
+                        <div class="sra-workload">
+                            <div class="wl-title">Workload, Application, and Data Security</div>
+                            <div class="wl-items">
+                                <span class="wl-item"><i class="fas fa-circle"></i> Identity pxGrid</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Micro segmentation</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Flow analytics</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Threat intelligence</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Firewall rules/policy</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Defense in depth</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> AI Defense</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Deployment automation</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Micro segmentation</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Discovery & observability</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Container security</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> Run-time protection</span>
+                                <span class="wl-item"><i class="fas fa-circle"></i> DDoS / WAF / Bot</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <h3>2.1 用户/设备安全 — 零信任劳动力（Zero Trust Workforce）</h3>
-            <p>
-                本模块专注于保护用户和设备的访问安全。核心理念是：<strong>在授予任何访问权限之前，必须始终验证用户身份和设备状态。</strong>
-            </p>
-            <p>
-                Cisco 在此领域的关键解决方案包括：
-            </p>
+            <p>本模块专注于保护用户和设备的访问安全。核心理念是：<strong>在授予任何访问权限之前，必须始终验证用户身份和设备状态。</strong></p>
+            <p>Cisco 在此领域的关键解决方案包括：</p>
             <ul>
                 <li><strong>统一客户端（Unified Client）：</strong>将 VPN、ISE Posture（终端合规检查）、Umbrella 漫游安全、网络可见性、AMP for
                     Endpoints（终端高级恶意软件防护）、Orbital、Duo 设备健康检查及 DART 等多个模块集成到单一框架中。</li>
@@ -578,15 +923,11 @@
             </ul>
 
             <h3>2.2 网络安全（Network Security）</h3>
-            <p>
-                网络安全涵盖威胁防护、安全访问控制和托管远程访问三大领域，并进一步细分为<strong>云边缘（Cloud
-                    Edge）</strong>和<strong>本地部署（On-Premises）</strong>两个维度。
-            </p>
+            <p>网络安全涵盖威胁防护、安全访问控制和托管远程访问三大领域，并进一步细分为<strong>云边缘（Cloud
+                    Edge）</strong>和<strong>本地部署（On-Premises）</strong>两个维度。</p>
 
             <h4>云边缘安全</h4>
-            <p>
-                云边缘安全着重于以下核心能力：
-            </p>
+            <p>云边缘安全着重于以下核心能力：</p>
             <ul>
                 <li><strong>DNS 层安全：</strong>在 DNS 解析阶段即阻断恶意连接</li>
                 <li><strong>七层防火墙 + IPS：</strong>应用层的深度包检测与入侵防御</li>
@@ -599,14 +940,10 @@
                 <li><strong>零信任网络访问（ZTNA）</strong></li>
                 <li><strong>勒索软件即服务（RaaS）防护</strong></li>
             </ul>
-            <p>
-                主要解决方案包括 <strong>Cisco Umbrella</strong> 和 <strong>Duo</strong>，它们共同提供 ZTNA 和 SASE 能力。
-            </p>
+            <p>主要解决方案包括 <strong>Cisco Umbrella</strong> 和 <strong>Duo</strong>，它们共同提供 ZTNA 和 SASE 能力。</p>
 
             <h4>本地部署安全</h4>
-            <p>
-                本地安全聚焦于以下核心领域：
-            </p>
+            <p>本地安全聚焦于以下核心领域：</p>
             <ul>
                 <li><strong>网络分段（Segmentation）：</strong>将网络划分为安全区域，限制攻击面</li>
                 <li><strong>身份与上下文感知（Identity and Context）：</strong>基于用户身份和上下文动态实施策略</li>
@@ -614,34 +951,59 @@
                 <li><strong>威胁遏制（Containment）：</strong>在检测到威胁后快速隔离受影响设备</li>
                 <li><strong>加密流量可见性（Encrypted Visibility）：</strong>在不解密的前提下检测加密流量中的威胁</li>
             </ul>
-            <p>
-                核心技术平台包括 <strong>Cisco ISE</strong>（身份服务引擎）、<strong>Secure Firewall</strong>（安全防火墙）、<strong>SD-WAN by
+            <p>核心技术平台包括 <strong>Cisco ISE</strong>（身份服务引擎）、<strong>Secure Firewall</strong>（安全防火墙）、<strong>SD-WAN by
                     Viptela</strong> 和 <strong>ThousandEyes</strong>（网络可见性分析）。同时，<strong>Cisco Cyber Vision</strong>
-                将安全能力延伸至 IoT/OT 领域，保护关键基础设施。
-            </p>
+                将安全能力延伸至 IoT/OT 领域，保护关键基础设施。</p>
+
+            <!-- ===== 图2: Security Cloud Control (1:1 复刻 P3) ===== -->
+            <div class="cisco-diagram">
+                <div class="diagram-caption">图 2 — Cisco Security Platform: Security Cloud Control</div>
+                <div class="sra-scc-wrap">
+                    <div class="sra-scc-header">Cisco Security Platform: Security Cloud Control</div>
+                    <div class="sra-scc-body">
+                        <div class="sra-scc-row">
+                            <i class="fas fa-satellite-dish"></i>
+                            <div>
+                                <div class="scc-title">Threat Intelligence · Security Operations Center</div>
+                                <div class="scc-desc">Talos 全球威胁情报 + SOC 安全运营中心</div>
+                            </div>
+                        </div>
+                        <div class="sra-scc-zt-label">Zero Trust</div>
+                        <div class="sra-scc-zt">
+                            <div class="scc-zt-card">
+                                <i class="fas fa-cloud"></i>
+                                <div class="zt-name">Cloud Edge</div>
+                            </div>
+                            <div class="scc-zt-card">
+                                <i class="fas fa-building"></i>
+                                <div class="zt-name">On Premises Network</div>
+                            </div>
+                        </div>
+                        <div class="sra-scc-row">
+                            <i class="fas fa-shield-halved"></i>
+                            <div>
+                                <div class="scc-title">Cloud Protection: Workload & App Security</div>
+                                <div class="scc-desc">工作负载、应用和数据安全防护</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h3>2.3 应用安全 — 零信任工作负载（Zero Trust Workload）</h3>
-            <p>
-                本模块旨在保护无论部署在数据中心还是云环境中的工作负载，涵盖以下关键领域：
-            </p>
+            <p>本模块旨在保护无论部署在数据中心还是云环境中的工作负载，涵盖以下关键领域：</p>
             <ul>
                 <li><strong>策略与 API 安全：</strong>对应用接口实施精细化的安全策略</li>
                 <li><strong>应用分段：</strong>在微服务级别实现工作负载隔离</li>
                 <li><strong>运行时应用安全：</strong>实时监控应用行为，检测异常</li>
                 <li><strong>云原生安全：</strong>为容器化和无服务器应用提供安全防护</li>
             </ul>
-            <p>
-                <strong>Cisco Secure Workload</strong> 提供可见性和行为分析能力，能够检测异常活动。<strong>AppDynamics</strong>
-                则在应用代码层面提供深度可见性，实现代码级的安全洞察。
-            </p>
+            <p><strong>Cisco Secure Workload</strong> 提供可见性和行为分析能力，能够检测异常活动。<strong>AppDynamics</strong>
+                则在应用代码层面提供深度可见性，实现代码级的安全洞察。</p>
 
             <h3>2.4 SecureX 与安全运营 + Talos</h3>
-            <p>
-                SecureX 是整合整个安全产品组合的统一平台，扮演着<strong>扩展检测与响应（XDR）</strong>解决方案的角色，将用户/设备安全、网络安全和应用安全统一起来。
-            </p>
-            <p>
-                SecureX 的核心能力包括：
-            </p>
+            <p>SecureX 是整合整个安全产品组合的统一平台，扮演着<strong>扩展检测与响应（XDR）</strong>解决方案的角色，将用户/设备安全、网络安全和应用安全统一起来。</p>
+            <p>SecureX 的核心能力包括：</p>
             <ul>
                 <li><strong>集中管理：</strong>统一视图管理所有安全组件</li>
                 <li><strong>编排与自动化：</strong>自动化安全响应流程，减少人工干预</li>
@@ -649,92 +1011,149 @@
                 <li><strong>第三方集成：</strong>与非 Cisco 安全产品无缝协作</li>
                 <li><strong>威胁可见性与威胁猎杀：</strong>主动发现潜在威胁</li>
             </ul>
-            <p>
-                <strong>Cisco Talos</strong> 是全球最大的商业威胁情报组织之一，为整个安全架构提供动力。Talos
-                通过恶意软件分析、可执行情报和集体响应机制，使安全环境面对不断演化的威胁变得更加智能。
-            </p>
+            <p><strong>Cisco Talos</strong> 是全球最大的商业威胁情报组织之一，为整个安全架构提供动力。Talos
+                通过恶意软件分析、可执行情报和集体响应机制，使安全环境面对不断演化的威胁变得更加智能。</p>
 
             <!-- 第三章 -->
             <h2>第三章：核心用例与应用场景</h2>
 
             <h3>3.1 零信任（Zero Trust）</h3>
-            <p>
-                零信任理念贯穿整个架构，应用于三大领域：
-            </p>
+            <p>零信任理念贯穿整个架构，应用于三大领域：</p>
+            <ul>
+                <li><strong>零信任劳动力（Workforce）：</strong>通过用户/设备安全模块，在每次访问时验证身份和设备状态</li>
+                <li><strong>零信任工作场所（Workplace）：</strong>通过网络安全模块（本地部署），利用 ISE 实现网络分段和访问控制</li>
+                <li><strong>零信任工作负载（Workload）：</strong>通过应用安全模块，对工作负载实施微分段和持续验证</li>
+            </ul>
 
-            <!-- ========== 架构图3: 零信任三支柱 ========== -->
-            <div class="arch-diagram">
-                <div class="diagram-title">图 3 — 零信任三支柱</div>
-                <div class="zt-pillars">
-                    <div class="zt-card">
-                        <i class="fas fa-user-lock"></i>
-                        <div class="zt-title">零信任劳动力</div>
-                        <div class="zt-subtitle">Zero Trust Workforce</div>
-                        <div class="zt-desc">每次访问时验证用户身份与设备状态<br><strong>Duo · Unified Client</strong></div>
-                    </div>
-                    <div class="zt-card">
-                        <i class="fas fa-building-shield"></i>
-                        <div class="zt-title">零信任工作场所</div>
-                        <div class="zt-subtitle">Zero Trust Workplace</div>
-                        <div class="zt-desc">网络分段与访问控制<br><strong>ISE · Secure Firewall</strong></div>
-                    </div>
-                    <div class="zt-card">
-                        <i class="fas fa-boxes-stacked"></i>
-                        <div class="zt-title">零信任工作负载</div>
-                        <div class="zt-subtitle">Zero Trust Workload</div>
-                        <div class="zt-desc">微分段与持续验证<br><strong>Secure Workload · AppDynamics</strong></div>
-                    </div>
-                </div>
-                <div class="zt-connector">
-                    <span><i class="fas fa-arrows-rotate"></i>&nbsp; 永不信任，始终验证 — Never Trust, Always Verify</span>
-                </div>
-            </div>
+            <h3>3.2 通用 ZTNA — 统一远程与本地访问</h3>
+            <p>SASE 解决了远程员工和分支机构/网络边缘的安全需求，通过<strong>将网络和安全服务融合到云中</strong>来实现。传统的"回传到总部再上互联网"的模式已经无法满足现代分布式办公的需求，SASE
+                允许用户从任何地点直接、安全地访问云资源。</p>
 
-            <h3>3.2 安全访问服务边缘（SASE）</h3>
-            <p>
-                SASE 解决了远程员工和分支机构/网络边缘的安全需求，通过<strong>将网络和安全服务融合到云中</strong>来实现。传统的"回传到总部再上互联网"的模式已经无法满足现代分布式办公的需求，SASE
-                允许用户从任何地点直接、安全地访问云资源。
-            </p>
-
-            <!-- ========== 架构图4: SASE 流程 ========== -->
-            <div class="arch-diagram">
-                <div class="diagram-title">图 4 — SASE 安全访问模型</div>
-                <div class="sase-flow">
-                    <div class="sase-node user">
-                        <i class="fas fa-laptop-house"></i>
-                        <div>远程用户 / 分支</div>
-                        <div class="node-sub">任意地点接入</div>
+            <!-- ===== 图3: Universal ZTNA (1:1 复刻 P10) ===== -->
+            <div class="cisco-diagram">
+                <div class="diagram-caption">图 3 — Universal ZTNA: 统一零信任网络访问</div>
+                <div class="sra-ztna-outer">
+                    <div class="sra-ztna-top">
+                        <span class="zt-badge">Security Cloud Control</span>
+                        <div class="zt-legend">
+                            <span>Data plane</span>
+                            <span>Control plane</span>
+                        </div>
                     </div>
-                    <div class="sase-arrow">→</div>
-                    <div class="sase-node cloud">
-                        <i class="fas fa-cloud-meatball"></i>
-                        <div>SASE 云安全</div>
-                        <div class="node-sub">SWG · CASB · ZTNA · DLP</div>
-                    </div>
-                    <div class="sase-arrow">→</div>
-                    <div class="sase-node app">
-                        <i class="fas fa-sitemap"></i>
-                        <div>SaaS / 私有应用</div>
-                        <div class="node-sub">安全直连云资源</div>
+                    <div class="sra-ztna-body">
+                        <div class="sra-ztna-flow">
+                            <div class="sra-ztna-users">
+                                <div class="sra-ztna-user">Secure Remote User<br><small>远程安全用户</small></div>
+                                <div class="sra-ztna-user">On-prem User<br><small>本地用户</small></div>
+                            </div>
+                            <div class="sra-ztna-arrows">
+                                <span>↓</span><span>↓</span><span>↓</span><span>↓</span>
+                            </div>
+                            <div class="sra-ztna-mid">
+                                <div class="sra-ztna-zone">
+                                    Cloud Edge Network<br>SASE / Security Service Edge
+                                    <div class="ztna-product">Secure Access</div>
+                                </div>
+                                <div class="sra-ztna-zone">
+                                    SASE / SD-WAN
+                                </div>
+                                <div class="sra-ztna-zone">
+                                    In the Office / Managed Location
+                                    <div class="ztna-product">NGFW</div>
+                                </div>
+                                <div class="sra-ztna-zone">
+                                    Industrial Threat Defense
+                                </div>
+                            </div>
+                            <div class="sra-ztna-arrows">
+                                <span>↓</span><span>↓</span>
+                            </div>
+                            <div class="sra-ztna-bottom">
+                                <div class="sra-ztna-internet">Internet</div>
+                                <div class="sra-ztna-dc">Hybrid Multicloud DC<br><small>混合多云数据中心</small></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <h3>3.3 扩展检测与响应（XDR）</h3>
-            <p>
-                SecureX 提供的 XDR 能力将来自不同安全域的数据汇聚在一起，实现更全面的威胁检测和更快速的响应。与传统的 SIEM 相比，XDR
-                更加注重关联分析和自动化响应，减少安全运营团队（SOC）的告警疲劳。
+            <h3>3.3 安全运营中心与 XDR</h3>
+            <p>SecureX 提供的 XDR 能力将来自不同安全域的数据汇聚在一起，实现更全面的威胁检测和更快速的响应。与传统的 SIEM 相比，XDR 更加注重关联分析和自动化响应，减少安全运营团队（SOC）的告警疲劳。
             </p>
+
+            <!-- ===== 图4: SOC XDR ↔ SIEM (1:1 复刻 P12) ===== -->
+            <div class="cisco-diagram">
+                <div class="diagram-caption">图 4 — Security Operations Center: XDR ↔ SIEM</div>
+                <div class="sra-soc-outer">
+                    <div class="sra-xdr-siem">
+                        <div class="sra-xdr-box"><span>XDR</span></div>
+                        <div class="sra-xdr-arrow">⟷</div>
+                        <div class="sra-siem-box"><span>SIEM</span></div>
+                    </div>
+                    <div class="sra-soc-pipeline">
+                        <div class="sra-soc-step">Continuous<br>Monitoring<br><small>持续监控</small></div>
+                        <span class="sra-soc-step-arrow">→</span>
+                        <div class="sra-soc-step">Threat<br>Detection<br><small>威胁检测</small></div>
+                        <span class="sra-soc-step-arrow">→</span>
+                        <div class="sra-soc-step">Incident<br>Response<br><small>事件响应</small></div>
+                        <span class="sra-soc-step-arrow">→</span>
+                        <div class="sra-soc-step">Security<br>Improvement<br><small>安全改善</small></div>
+                        <span class="sra-soc-step-arrow">→</span>
+                        <div class="sra-soc-step">Compliance<br><br><small>合规</small></div>
+                    </div>
+                    <div class="sra-telemetry">
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar green"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">SSE</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar blue"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">SD-WAN</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar red"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">User Security</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar green"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">On-prem</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar blue"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">IoT/OT</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar red"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">Workload</div>
+                        </div>
+                        <div class="sra-tel-arrow">
+                            <i class="fas fa-arrow-up up"></i>
+                            <div class="tel-bar green"></div>
+                            <i class="fas fa-arrow-down down"></i>
+                            <div class="tel-label">App Security</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- 总结 -->
             <h2>总结</h2>
-            <p>
-                Cisco
+            <p>Cisco
                 安全参考架构为在多样化部署场景（本地、云端、混合环境）中构建端到端安全解决方案提供了一套完整的蓝图。它不是一个需要一次性实施的庞大方案，而是一个<strong>模块化的框架</strong>——组织可以根据自身的安全成熟度和业务需求，分阶段、有重点地推进安全建设。
             </p>
-            <p>
-                在不断演化的威胁态势面前，这套架构的核心价值在于它提供了一种<strong>系统性的思维方式</strong>：将安全视为贯穿用户、网络、应用和运营每一个环节的整体能力，而非孤立的安全孤岛。
-            </p>
+            <p>在不断演化的威胁态势面前，这套架构的核心价值在于它提供了一种<strong>系统性的思维方式</strong>：将安全视为贯穿用户、网络、应用和运营每一个环节的整体能力，而非孤立的安全孤岛。</p>
         </article>
 
         <!-- 导航 -->
