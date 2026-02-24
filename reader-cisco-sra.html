@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cisco 安全参考架构概述与用例 - Twobro 译作</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="reader-mode">
+    <!-- 阅读器顶栏 -->
+    <nav class="reader-nav">
+        <div class="nav-container">
+            <a href="translations.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> 返回书库
+            </a>
+            <div class="reader-controls">
+                <button class="control-btn" title="调整字号"><i class="fas fa-font"></i></button>
+                <button class="control-btn" title="夜间模式"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 正文区域 -->
+    <main class="reader-container">
+        <header class="book-header">
+            <h1 class="book-title">Cisco 安全参考架构：概述与用例</h1>
+            <div class="book-meta">
+                <p>原著：Cisco Systems</p>
+                <p>翻译：Twobro</p>
+                <p>最后更新：2026-02-24</p>
+            </div>
+
+            <div class="translator-note">
+                <strong>译者序：</strong>本文译自 Cisco 官方发布的《Security Reference Architecture — Overview and Use Cases》（版本
+                2.0.1，2022 年 2 月）。该文档为企业设计和实施安全网络提供了一套系统性的参考架构框架，涵盖了零信任（Zero Trust）、SASE、XDR
+                等前沿安全理念。我在翻译过程中尽量保留了专业术语的英文原文，以方便读者对照理解。原文版权归 Cisco Systems 所有，本译文仅供学习交流之用。
+            </div>
+        </header>
+
+        <article class="book-content">
+
+            <!-- 第一章 -->
+            <h2>第一章：安全参考架构的演进</h2>
+
+            <h3>1.1 从 Cisco SAFE 到现代安全架构</h3>
+            <p>
+                Cisco 安全参考架构的历史可以追溯到最初的「Cisco SAFE」（企业网络安全蓝图）。随着时间的推移，它从一个以设备部署为中心的安全模型，逐步演进为融合了零信任（Zero
+                Trust）和安全访问服务边缘（SASE）等现代理念的综合性安全框架。
+            </p>
+            <p>
+                该架构的核心原则是：<strong>一个安全的网络不仅仅是部署安全设备，更必须在确保安全的同时提供关键的业务服务</strong>。它采用"纵深防御"（Defense-in-Depth）策略，通过分层的安全体系来实现威胁缓解，而非依赖单一的安全功能点。
+            </p>
+            <p>
+                整个架构设计为可弹性伸缩、模块化的结构，支持分阶段实施，并能有效处理网络各功能模块之间的安全关系。
+            </p>
+
+            <h3>1.2 早期核心概念</h3>
+            <p>
+                最初的 Cisco SAFE 蓝图使用两个核心概念来组织安全体系：
+            </p>
+            <ul>
+                <li><strong>网络中的位置（Places in the Network,
+                        PINs）：</strong>代表典型的网络场景及其所需的基础设施，例如数据中心、分支机构、园区网络、广域网（WAN）、互联网边缘以及云环境。</li>
+                <li><strong>安全域（Secure Domains）：</strong>贯穿整个网络的安全运营领域，涵盖管理、安全情报、合规、分段、威胁防御和安全服务等方面。</li>
+            </ul>
+            <p>
+                随着虚拟化、云计算、Web 2.0 技术的兴起，以及僵尸网络、高级身份盗窃、Web 应用层攻击等更复杂威胁的出现，该架构也在持续进化以应对不断变化的网络和安全态势。
+            </p>
+
+            <!-- 第二章 -->
+            <h2>第二章：四大安全模块</h2>
+            <p>
+                在 2.0.1 版本中，Cisco 安全参考架构将安全能力划分为四个主要类别，与现代客户网络环境紧密对齐：
+            </p>
+
+            <h3>2.1 用户/设备安全 — 零信任劳动力（Zero Trust Workforce）</h3>
+            <p>
+                本模块专注于保护用户和设备的访问安全。核心理念是：<strong>在授予任何访问权限之前，必须始终验证用户身份和设备状态。</strong>
+            </p>
+            <p>
+                Cisco 在此领域的关键解决方案包括：
+            </p>
+            <ul>
+                <li><strong>统一客户端（Unified Client）：</strong>将 VPN、ISE Posture（终端合规检查）、Umbrella 漫游安全、网络可见性、AMP for
+                    Endpoints（终端高级恶意软件防护）、Orbital、Duo 设备健康检查及 DART 等多个模块集成到单一框架中。</li>
+                <li><strong>自适应多因素认证（Adaptive MFA）：</strong>根据风险等级动态调整验证强度。</li>
+                <li><strong>无密码认证（Passwordless Authentication）：</strong>消除密码带来的安全风险。</li>
+                <li><strong>Duo Secure Access：</strong>提供安全的远程访问能力。</li>
+                <li><strong>EDR / 云托管方案：</strong>如 Meraki Systems Manager，实现终端检测与响应。</li>
+            </ul>
+
+            <h3>2.2 网络安全（Network Security）</h3>
+            <p>
+                网络安全涵盖威胁防护、安全访问控制和托管远程访问三大领域，并进一步细分为<strong>云边缘（Cloud
+                    Edge）</strong>和<strong>本地部署（On-Premises）</strong>两个维度。
+            </p>
+
+            <h4>云边缘安全</h4>
+            <p>
+                云边缘安全着重于以下核心能力：
+            </p>
+            <ul>
+                <li><strong>DNS 层安全：</strong>在 DNS 解析阶段即阻断恶意连接</li>
+                <li><strong>七层防火墙 + IPS：</strong>应用层的深度包检测与入侵防御</li>
+                <li><strong>安全 Web 网关（SWG）：</strong>保护用户的互联网访问</li>
+                <li><strong>云访问安全代理（CASB）/ 影子 IT 发现：</strong>监控和控制对云应用的使用</li>
+                <li><strong>SSL 解密：</strong>对加密流量进行安全检查</li>
+                <li><strong>远程浏览器隔离（RBI）：</strong>在隔离环境中渲染 Web 内容</li>
+                <li><strong>数据丢失防护（DLP）：</strong>防止敏感数据外泄</li>
+                <li><strong>云恶意软件检测</strong></li>
+                <li><strong>零信任网络访问（ZTNA）</strong></li>
+                <li><strong>勒索软件即服务（RaaS）防护</strong></li>
+            </ul>
+            <p>
+                主要解决方案包括 <strong>Cisco Umbrella</strong> 和 <strong>Duo</strong>，它们共同提供 ZTNA 和 SASE 能力。
+            </p>
+
+            <h4>本地部署安全</h4>
+            <p>
+                本地安全聚焦于以下核心领域：
+            </p>
+            <ul>
+                <li><strong>网络分段（Segmentation）：</strong>将网络划分为安全区域，限制攻击面</li>
+                <li><strong>身份与上下文感知（Identity and Context）：</strong>基于用户身份和上下文动态实施策略</li>
+                <li><strong>设备画像（Profiling）：</strong>自动识别和分类接入网络的设备</li>
+                <li><strong>威胁遏制（Containment）：</strong>在检测到威胁后快速隔离受影响设备</li>
+                <li><strong>加密流量可见性（Encrypted Visibility）：</strong>在不解密的前提下检测加密流量中的威胁</li>
+            </ul>
+            <p>
+                核心技术平台包括 <strong>Cisco ISE</strong>（身份服务引擎）、<strong>Secure Firewall</strong>（安全防火墙）、<strong>SD-WAN by
+                    Viptela</strong> 和 <strong>ThousandEyes</strong>（网络可见性分析）。同时，<strong>Cisco Cyber Vision</strong>
+                将安全能力延伸至 IoT/OT 领域，保护关键基础设施。
+            </p>
+
+            <h3>2.3 应用安全 — 零信任工作负载（Zero Trust Workload）</h3>
+            <p>
+                本模块旨在保护无论部署在数据中心还是云环境中的工作负载，涵盖以下关键领域：
+            </p>
+            <ul>
+                <li><strong>策略与 API 安全：</strong>对应用接口实施精细化的安全策略</li>
+                <li><strong>应用分段：</strong>在微服务级别实现工作负载隔离</li>
+                <li><strong>运行时应用安全：</strong>实时监控应用行为，检测异常</li>
+                <li><strong>云原生安全：</strong>为容器化和无服务器应用提供安全防护</li>
+            </ul>
+            <p>
+                <strong>Cisco Secure Workload</strong> 提供可见性和行为分析能力，能够检测异常活动。<strong>AppDynamics</strong>
+                则在应用代码层面提供深度可见性，实现代码级的安全洞察。
+            </p>
+
+            <h3>2.4 SecureX 与安全运营 + Talos</h3>
+            <p>
+                SecureX 是整合整个安全产品组合的统一平台，扮演着<strong>扩展检测与响应（XDR）</strong>解决方案的角色，将用户/设备安全、网络安全和应用安全统一起来。
+            </p>
+            <p>
+                SecureX 的核心能力包括：
+            </p>
+            <ul>
+                <li><strong>集中管理：</strong>统一视图管理所有安全组件</li>
+                <li><strong>编排与自动化：</strong>自动化安全响应流程，减少人工干预</li>
+                <li><strong>响应能力：</strong>快速定位威胁并采取行动</li>
+                <li><strong>第三方集成：</strong>与非 Cisco 安全产品无缝协作</li>
+                <li><strong>威胁可见性与威胁猎杀：</strong>主动发现潜在威胁</li>
+            </ul>
+            <p>
+                <strong>Cisco Talos</strong> 是全球最大的商业威胁情报组织之一，为整个安全架构提供动力。Talos
+                通过恶意软件分析、可执行情报和集体响应机制，使安全环境面对不断演化的威胁变得更加智能。
+            </p>
+
+            <!-- 第三章 -->
+            <h2>第三章：核心用例与应用场景</h2>
+
+            <h3>3.1 零信任（Zero Trust）</h3>
+            <p>
+                零信任理念贯穿整个架构，应用于三大领域：
+            </p>
+            <ul>
+                <li><strong>零信任劳动力（Workforce）：</strong>通过用户/设备安全模块，在每次访问时验证身份和设备状态</li>
+                <li><strong>零信任工作场所（Workplace）：</strong>通过网络安全模块（本地部署），利用 ISE 实现网络分段和访问控制</li>
+                <li><strong>零信任工作负载（Workload）：</strong>通过应用安全模块，对工作负载实施微分段和持续验证</li>
+            </ul>
+
+            <h3>3.2 安全访问服务边缘（SASE）</h3>
+            <p>
+                SASE 解决了远程员工和分支机构/网络边缘的安全需求，通过<strong>将网络和安全服务融合到云中</strong>来实现。传统的"回传到总部再上互联网"的模式已经无法满足现代分布式办公的需求，SASE
+                允许用户从任何地点直接、安全地访问云资源。
+            </p>
+
+            <h3>3.3 扩展检测与响应（XDR）</h3>
+            <p>
+                SecureX 提供的 XDR 能力将来自不同安全域的数据汇聚在一起，实现更全面的威胁检测和更快速的响应。与传统的 SIEM 相比，XDR 更加注重关联分析和自动化响应，减少安全运营团队（SOC）的告警疲劳。
+            </p>
+
+            <!-- 总结 -->
+            <h2>总结</h2>
+            <p>
+                Cisco
+                安全参考架构为在多样化部署场景（本地、云端、混合环境）中构建端到端安全解决方案提供了一套完整的蓝图。它不是一个需要一次性实施的庞大方案，而是一个<strong>模块化的框架</strong>——组织可以根据自身的安全成熟度和业务需求，分阶段、有重点地推进安全建设。
+            </p>
+            <p>
+                在不断演化的威胁态势面前，这套架构的核心价值在于它提供了一种<strong>系统性的思维方式</strong>：将安全视为贯穿用户、网络、应用和运营每一个环节的整体能力，而非孤立的安全孤岛。
+            </p>
+        </article>
+
+        <!-- 导航 -->
+        <div class="reader-footer">
+            <a href="translations.html" class="btn btn-secondary btn-sm">← 返回书库</a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Twobro. 本译文仅供学习交流，请勿商用。原文版权归 Cisco Systems 所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
