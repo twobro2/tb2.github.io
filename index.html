@@ -15,14 +15,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-book-open"></i>
+                <i class="fas fa-gem"></i>
                 <span>Twobro</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">首页</a></li>
-                <li><a href="translations.html">译作书库</a></li>
                 <li><a href="about.html">关于我</a></li>
-                <li><a href="contact.html">留言</a></li>
+                <li><a href="translations.html">译作书库</a></li>
+                <li><a href="contact.html">联系</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -32,40 +32,71 @@
         </div>
     </nav>
 
-    <!-- 主页横幅 -->
+    <!-- 主页横幅：以个人介绍为核心 -->
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">探索文字的力量</span>
-                    <br>欢迎来到我的译作空间
+                    <span class="gradient-text">你好，我是</span>
+                    <br>Twobro
                 </h1>
                 <p class="hero-subtitle">
-                    我是一名热衷于分享优秀书籍的译者。在这里，你将发现跨越语言边界的思想与故事。
+                    对世界充满好奇，热爱阅读与写作，善于将复杂的想法转化为清晰的文字。业余时间翻译优秀的外文书籍，希望让更多人看到好的思想。
                 </p>
                 <div class="hero-buttons">
-                    <a href="translations.html" class="btn btn-primary">进入书库</a>
-                    <a href="about.html" class="btn btn-secondary">了解更多</a>
+                    <a href="about.html" class="btn btn-primary">了解更多</a>
+                    <a href="contact.html" class="btn btn-secondary">联系我</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder"
-                    style="width: 100%; max-width: 400px; height: auto; aspect-ratio: 1; border-radius: 20px;">
-                    <i class="fas fa-book-reader" style="font-size: 8rem;"></i>
+                <div class="image-placeholder" style="border-radius: 20px;">
+                    <i class="fas fa-user-circle"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 最新译作展示 -->
+    <!-- 个人亮点 -->
+    <section id="highlights" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>关于我</h2>
+                <p>一些能代表我的关键词</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>热爱阅读</h3>
+                    <p>广泛涉猎各类书籍，尤其喜欢设计、心理学和科技领域的作品</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>翻译爱好者</h3>
+                    <p>业余时间翻译优质外文书籍，致力于消除语言壁垒，传播好的思想</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>文字表达</h3>
+                    <p>善于用清晰、准确的文字表达复杂的概念，注重读者的阅读体验</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选译作（作为附属内容） -->
     <section id="featured-books" class="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2>精选译作</h2>
-                <p>近期完成翻译并推荐阅读的书籍</p>
+                <h2>我的译作</h2>
+                <p>业余时间翻译的一些书籍，免费提供在线阅读</p>
             </div>
             <div class="portfolio-grid">
-                <!-- 书籍卡片 1 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -73,13 +104,11 @@
                     <div class="book-info">
                         <h3>《设计之美》</h3>
                         <p class="portfolio-role">原著作者：John Doe</p>
-                        <p class="portfolio-desc">探索现代数字产品设计背后的心理学与美学原则。深入解析如何创造动人心弦的用户体验。</p>
-                        <a href="#" class="btn btn-secondary btn-sm"
+                        <p class="portfolio-desc">探索现代数字产品设计背后的心理学与美学原则。</p>
+                        <a href="reader.html" class="btn btn-secondary btn-sm"
                             style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
                     </div>
                 </div>
-
-                <!-- 书籍卡片 2 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -87,13 +116,11 @@
                     <div class="book-info">
                         <h3>《认知盲区》</h3>
                         <p class="portfolio-role">原著作者：Jane Smith</p>
-                        <p class="portfolio-desc">揭示我们在日常决策中常犯的逻辑谬误，帮助你建立更清晰、理性的思维框架。</p>
+                        <p class="portfolio-desc">揭示日常决策中常犯的逻辑谬误，助你建立理性的思维框架。</p>
                         <a href="#" class="btn btn-secondary btn-sm"
                             style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
                     </div>
                 </div>
-
-                <!-- 书籍卡片 3 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -101,38 +128,14 @@
                     <div class="book-info">
                         <h3>《未来的工作》</h3>
                         <p class="portfolio-role">原著作者：Alex Tech</p>
-                        <p class="portfolio-desc">人工智能时代下，个人职业发展的全面指南。探讨哪些技能将成为未来的核心竞争力。</p>
+                        <p class="portfolio-desc">人工智能时代下，个人职业发展的全面指南。</p>
                         <a href="#" class="btn btn-secondary btn-sm"
                             style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
                     </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 40px;">
-                <a href="translations.html" class="btn btn-primary"
-                    style="background: transparent; border: 2px solid var(--tiffany-blue); color: var(--tiffany-blue);">查看完整书库</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 个人简述 -->
-    <section id="about-brief" class="about"
-        style="background: linear-gradient(135deg, var(--white) 0%, var(--tiffany-light) 100%);">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image" style="order: -1;">
-                    <div class="image-placeholder" style="width: 250px; height: 250px;">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h2>你好，我是 Twobro</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dark);">
-                        我相信语言不应该成为获取知识的障碍。通过翻译，我希望能将世界上优秀的思想、动人的故事和前沿的见解带给更多中文读者。
-                    </p>
-                    <p style="font-size: 1.1rem;">
-                        在这里，你可以免费阅读我所有的翻译作品。如果你发现了翻译错误，或者有好的书籍推荐，欢迎随时留言与我交流。
-                    </p>
-                </div>
+                <a href="translations.html" class="btn btn-secondary">查看全部译作 →</a>
             </div>
         </div>
     </section>
@@ -143,19 +146,19 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Twobro</h3>
-                    <p>打破语言边界，传递思想力量</p>
+                    <p>保持好奇，持续探索</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>快速链接</h3>
+                    <h3>导航</h3>
                     <ul>
-                        <li><a href="index.html">返回首页</a></li>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
                         <li><a href="translations.html">译作书库</a></li>
-                        <li><a href="about.html">关于译者</a></li>
-                        <li><a href="contact.html">留言交流</a></li>
+                        <li><a href="contact.html">联系</a></li>
                     </ul>
                 </div>
             </div>
