@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twobro - 个人网站</title>
+    <title>译作书库 - Twobro</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="padding-top: 70px;">
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
@@ -20,7 +20,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">首页</a></li>
-                <li><a href="translations.html">译作书库</a></li>
+                <li><a href="translations.html" style="color: var(--tiffany-blue);">译作书库</a></li>
                 <li><a href="about.html">关于我</a></li>
                 <li><a href="contact.html">留言</a></li>
             </ul>
@@ -32,40 +32,29 @@
         </div>
     </nav>
 
-    <!-- 主页横幅 -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">探索文字的力量</span>
-                    <br>欢迎来到我的译作空间
-                </h1>
-                <p class="hero-subtitle">
-                    我是一名热衷于分享优秀书籍的译者。在这里，你将发现跨越语言边界的思想与故事。
-                </p>
-                <div class="hero-buttons">
-                    <a href="translations.html" class="btn btn-primary">进入书库</a>
-                    <a href="about.html" class="btn btn-secondary">了解更多</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-placeholder"
-                    style="width: 100%; max-width: 400px; height: auto; aspect-ratio: 1; border-radius: 20px;">
-                    <i class="fas fa-book-reader" style="font-size: 8rem;"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 最新译作展示 -->
-    <section id="featured-books" class="portfolio">
+    <!-- 页面标题 -->
+    <header class="page-header" style="padding: 80px 0 60px;">
         <div class="container">
-            <div class="section-header">
-                <h2>精选译作</h2>
-                <p>近期完成翻译并推荐阅读的书籍</p>
+            <h1>译作书库</h1>
+            <p>探索跨越语言边界的思想与故事</p>
+        </div>
+    </header>
+
+    <!-- 书库网格 -->
+    <section class="portfolio" style="padding: 40px 0 100px;">
+        <div class="container">
+
+            <!-- 分类标签 (可选功能预留) -->
+            <div style="display: flex; gap: 15px; margin-bottom: 40px; justify-content: center; flex-wrap: wrap;">
+                <span class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">全部</span>
+                <span class="btn btn-secondary"
+                    style="padding: 8px 20px; font-size: 0.9rem; border-color: rgba(129, 216, 208, 0.4); color: var(--text-light);">设计与心理学</span>
+                <span class="btn btn-secondary"
+                    style="padding: 8px 20px; font-size: 0.9rem; border-color: rgba(129, 216, 208, 0.4); color: var(--text-light);">个人成长</span>
             </div>
+
             <div class="portfolio-grid">
-                <!-- 书籍卡片 1 -->
+                <!-- 第一本书 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -74,12 +63,13 @@
                         <h3>《设计之美》</h3>
                         <p class="portfolio-role">原著作者：John Doe</p>
                         <p class="portfolio-desc">探索现代数字产品设计背后的心理学与美学原则。深入解析如何创造动人心弦的用户体验。</p>
-                        <a href="#" class="btn btn-secondary btn-sm"
-                            style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 书籍卡片 2 -->
+                <!-- 第二本书 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -88,12 +78,13 @@
                         <h3>《认知盲区》</h3>
                         <p class="portfolio-role">原著作者：Jane Smith</p>
                         <p class="portfolio-desc">揭示我们在日常决策中常犯的逻辑谬误，帮助你建立更清晰、理性的思维框架。</p>
-                        <a href="#" class="btn btn-secondary btn-sm"
-                            style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 书籍卡片 3 -->
+                <!-- 第三本书 -->
                 <div class="portfolio-item book-card">
                     <div class="book-cover-placeholder">
                         <i class="fas fa-book"></i>
@@ -102,37 +93,27 @@
                         <h3>《未来的工作》</h3>
                         <p class="portfolio-role">原著作者：Alex Tech</p>
                         <p class="portfolio-desc">人工智能时代下，个人职业发展的全面指南。探讨哪些技能将成为未来的核心竞争力。</p>
-                        <a href="#" class="btn btn-secondary btn-sm"
-                            style="margin-top: 15px; display: inline-block; padding: 8px 20px;">立即阅读</a>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="translations.html" class="btn btn-primary"
-                    style="background: transparent; border: 2px solid var(--tiffany-blue); color: var(--tiffany-blue);">查看完整书库</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- 个人简述 -->
-    <section id="about-brief" class="about"
-        style="background: linear-gradient(135deg, var(--white) 0%, var(--tiffany-light) 100%);">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image" style="order: -1;">
-                    <div class="image-placeholder" style="width: 250px; height: 250px;">
-                        <i class="fas fa-user-circle"></i>
+                <!-- 第四本书 -->
+                <div class="portfolio-item book-card">
+                    <div class="book-cover-placeholder">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="book-info">
+                        <h3>《时间管理哲学》</h3>
+                        <p class="portfolio-role">原著作者：Mark Time</p>
+                        <p class="portfolio-desc">不仅仅是提高效率的工具，更是一种重新审视生命价值和目标设定的哲学思考。</p>
+                        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+                            <a href="#" class="btn btn-primary btn-sm" style="padding: 8px 20px;">开始阅读</a>
+                        </div>
                     </div>
                 </div>
-                <div class="about-text">
-                    <h2>你好，我是 Twobro</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dark);">
-                        我相信语言不应该成为获取知识的障碍。通过翻译，我希望能将世界上优秀的思想、动人的故事和前沿的见解带给更多中文读者。
-                    </p>
-                    <p style="font-size: 1.1rem;">
-                        在这里，你可以免费阅读我所有的翻译作品。如果你发现了翻译错误，或者有好的书籍推荐，欢迎随时留言与我交流。
-                    </p>
-                </div>
+
             </div>
         </div>
     </section>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《设计之美》 - Twobro 译作阅读</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="reader-mode">
+    <!-- 极简书页导航 -->
+    <nav class="reader-nav">
+        <div class="nav-container">
+            <a href="translations.html" class="back-btn"><i class="fas fa-arrow-left"></i> 返回书库</a>
+            <div class="reader-controls">
+                <button class="control-btn" title="切换深色/浅色模式 (预留)"><i class="fas fa-moon"></i></button>
+                <button class="control-btn" title="调整字号 (预留)"><i class="fas fa-font"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 阅读容器 -->
+    <main class="reader-container">
+        <header class="book-header">
+            <h1 class="book-title">《设计之美》</h1>
+            <div class="book-meta">
+                <p>原著：John Doe</p>
+                <p>翻译：Twobro</p>
+                <p>最后更新：2024-03-15</p>
+            </div>
+
+            <div class="translator-note">
+                <p><strong>译者序：</strong>翻译这本书的初衷是因为我在日常开发中深受糟糕设计的折磨。希望这本书的见解能启发更多国内的数字创作者建立科学的美学观。—— Twobro</p>
+            </div>
+        </header>
+
+        <article class="book-content">
+            <h2>第一章：认知负荷与用户耐心</h2>
+            <p>在数字产品的世界里，每一秒钟的延迟，每一个让人困惑的按钮，都在消耗着用户的“耐心存款”。这绝不是一种危言耸听，而是基于人类大脑工作机制的客观事实。</p>
+
+            <p>认知负荷（Cognitive Load），最初是由教育心理学家约翰·斯威勒（John Sweller）在20世纪80年代提出的概念。它指的是在学习或任务执行过程中，人的工作记忆（Working
+                Memory）所承担的心智负担量。</p>
+
+            <p>当你要求一个用户填写一张包含20个必填字段、却没有任何逻辑分组的表单时，你实际上是在强迫他们的大脑进行高强度的计算与信息整理。这种毫无必要的消耗，正是导致高跳出率的罪魁祸首。</p>
+
+            <h3>设计如何降低认知负荷？</h3>
+            <p>优秀的界面设计，就像一位经验丰富的导游，它总能以最自然的方式引导你走向目的地。以下是几个经过验证的核心原则：</p>
+
+            <ul>
+                <li><strong>米勒定律：</strong> 普通人的工作记忆一次只能处理 7±2 个信息块。这就是为什么要对长表单进行分步，或者将复杂的菜单项归类。</li>
+                <li><strong>席克定律：</strong> 用户面临的选择越多，做出决定的时间就越长。减少选项，就是减少思考的时间。</li>
+                <li><strong>格式塔原则：</strong> 巧用留白和对齐，让相关的内容在视觉上形成自然的组块。</li>
+            </ul>
+
+            <p>这不仅仅是关于“好看”，更是关于“好用”。当我们开始将设计视为一种减少用户认知消耗的工程时，真正的“设计之美”才刚刚浮现...</p>
+
+            <!-- 占位文本内容 -->
+            <p>为了展示阅读页面的排版效果，这里补充一些占位段落。在接下来的章节中，原作者详细探讨了色彩心理学在不同文化语境下的变迁。例如，在东方文化中象征财富和喜庆的红色，在西方的某些特定语境下，可能预示着警告和危险。
+            </p>
+
+            <p>因此，所谓全球化的设计，其实往往也是极具本地化色彩的。设计师必须像社会学家一样，去理解隐藏在视觉符号背后的深层文化密码。这是一项艰巨的任务，但也正是设计工作的迷人之处。</p>
+        </article>
+
+        <div class="reader-footer">
+            <a href="#" class="btn btn-secondary disabled">上一章</a>
+            <a href="#" class="btn btn-primary">下一章</a>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; color: #7f8c8d; font-size: 0.9rem;">
+        <p>&copy; 2024 Twobro. 本译文仅供学习交流，请勿商用。</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
